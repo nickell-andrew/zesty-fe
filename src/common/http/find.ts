@@ -1,15 +1,15 @@
 export const find = async (coords: { lat: number, lng: number}, distance: number) => {
-    const url = `http://localhost:1235/find`
+    const url = '/find'
     let response = await fetch(url, {
         method: 'POST',
-        // cache: 'no-cache',
+        cache: 'no-cache',
         // mode: 'no-cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [coords.lat, coords.lng]
+                "coordinates": [coords.lng, coords.lat]
             },
             "x-distance": distance
         })

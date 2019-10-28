@@ -1,9 +1,13 @@
 import qs from 'qs'
 
-export const statistics = (id: string, params: object) => {
-    const queryString = qs.stringify(params)
-    const baseUrl = `localhost:1235/${id}`
-    const url = queryString ? `${baseUrl}?${queryString}` : baseUrl
+export const getStatistics = async (id: string, distance: number) => {
+    const url = `/statistics/${id}?distance=${distance}`
     console.log(url)
-    fetch(url)
+    const response = await fetch(url)
+    if (response.ok) {
+        return response.json()
+    } else {
+        console.error('Something went wrong')
+        console.error(response)
+    }
 }
