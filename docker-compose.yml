@@ -4,3 +4,21 @@ services:
     build: .
     ports:
       - "8080:80"
+  postgresql:
+    image: mdillon/postgis:9.6
+    restart: always
+    ports:
+      - "5555:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: engineTest888
+      POSTGRES_DB: zesty
+    volumes:
+      - ../engineering-test-fs/init-db/:/docker-entrypoint-initdb.d/
+      - pg-data:/var/lib/postgresql/data
+  apis:
+    build: ../engineering-test-fs/.
+    ports:
+     - "1235:1235"
+volumes:
+  pg-data:
