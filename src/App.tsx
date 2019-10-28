@@ -1,25 +1,61 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'antd/dist/antd.css';
+import {
+  Route,
+  Switch,
+  BrowserRouter,
+  Link
+} from "react-router-dom";
+import { Layout, Menu } from 'antd';
+import VisualSearch from './routes/visualSearch'
 
+const {
+  Header,
+  // Footer,
+  Content } = Layout;
+
+const About = () => {
+  return <h2>About</h2>;
+}
+
+const Users = () => {
+  return <h2>Users</h2>;
+}
+
+
+console.log(process.env.REACT_APP_API_KEY)
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+    <Layout>
+      <Header>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['1']}
+          style={{ lineHeight: '64px' }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Menu.Item key="1"><Link to="/">Visual Search</Link></Menu.Item>
+          <Menu.Item key="2"><Link to="/about">About</Link></Menu.Item>
+          <Menu.Item key="3"><Link to="/users">Users</Link></Menu.Item>
+        </Menu>
+      </Header>
+      <Content>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <VisualSearch />
+          </Route>
+        </Switch>
+      </Content>
+      {/* <Footer>Footer</Footer> */}
+    </Layout>
+    </BrowserRouter>
   );
 }
 
