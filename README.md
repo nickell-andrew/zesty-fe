@@ -22,12 +22,12 @@
 - Implement Click handlers to show and hide Info Windows
 
 ### Corners Cut
-For various reasons (CORS and Library hunting for a decent google maps API integration lib) I didn't get as far as I would have liked.
-- The biggest piece I would have liked to finish would be to finish the docker-compose work rather than using `yarn start`. 
-- I would have liked to clean up the map view but it proved troublesome with the library I selected. Given more time I'd ensure that the map doesn't run below the bottom of the view screen thus preventing the render of a useless scrollbar and the inability to use the zoom out button
-- Loader should have been full screen but I didn't bother to set the params for it
+For various reasons (CORS, Docker Configuration battles, and Library hunting for a decent google maps API integration lib) I didn't get as far as I would have liked.
+- The biggest piece I would have liked to finish would be to finish the docker-compose work rather than using `yarn start`. I did some various fits and starts at setting up a proxy with the nginx image but ultimately I couldn't get it working. If I were to do this again, I would have simply setup a node service to act as a proxy in the interest of familiarity/time. In a perfect world I'd like to fiddle with serverless deployments for FE apps of this sort but that involves setting of CORS support on the backend which I couldn't do without messing with the backend repo. (which didn't seem to be part of the exerise).
+- I would have liked to clean up the map view but it proved troublesome with the library I selected. Given more time I'd ensure that the map doesn't run below the bottom of the view screen thus preventing the render of a useless scrollbar and the inability to use the zoom out button.
+- The Loader should have been full screen but I didn't bother to set the appropriate params for it.
 - Styles for the Info Window are a bit lacking.
-- The image is rendered at a small scale, I'd like to implement a click handler to show the full size image
+- The image is rendered at a small scale, so as to keep the info window manageable, but I'd like to implement a click handler to show the full size image
 - The property information from /statistics lacks units and includes large trailing decimal points. I'd like to do some processing to show them as more meaningful values to the user (but I'd need to know units for them)
 
 ========================================
