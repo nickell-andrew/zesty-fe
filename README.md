@@ -6,7 +6,7 @@
 - cd into client dir `cd zesty-fe`
 - Setup .env file: create by running `cp .env.example .env` then edit REACT_APP_API_KEY to your google maps API_KEY
 - Install Dependencies and Run FE dev mode: `yarn && yarn start`
-5) Open localhost:3000 and view
+4) Open localhost:3000 and view
 
 ## NOTES
 ### Features implemented:
